@@ -20,50 +20,56 @@ html {
 }
 
 
-.header {
-    height: 150px;
-    margin-left: 20px;
-}
-
 .txt {
     text-align: center;
     margin-top: 10px;
 }
 
 
-#head {
-    margin-top: 300px;
-}
-
-#src{
-    justify-content : center;
-    width: 40%;
-    margin-top: 20px;
-    margin-left: 500px;
-}
-
-#src2{
-    justify-content : center;
-    width: 40%;
-    margin-left: 500px;
-    margin-top: 20px;
-}
-
-#src3{
-    justify-content : center;
-    width: 40%;
-    margin-left: 500px;
-    margin-top: 20px;
-}
-
-.txt {
-    text-align: center;
-    margin-top: 10px;
-    color: white;
+.hd {
+    background-color: black;
 }
 
 .input-group {
     color: white;
 }
 
+.txt {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
 
+#src{
+    justify-content : center;
+    width: 40%;
+    
+}
+
+#src2{
+    justify-content : center;
+    width: 40%;
+    
+}
+
+#src3{
+    justify-content : center;
+    width: 40%;
+   
+}
+
+#Logo {
+    width: 12%;
+}
+
+#container1 {
+    font-size: 28px;
+}
+
+#container2 {
+    font-size:28px;
+}
+
+#header {
+    font-size: 55px;
+}
