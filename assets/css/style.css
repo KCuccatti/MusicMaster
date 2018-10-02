@@ -1,3 +1,34 @@
+html {
+    background: url(../images/Background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+.opacity{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    height: 100%;
+    width:100%;
+    opacity: 0.8;
+    background-color: black;
+}
+
+
+.header {
+    height: 150px;
+}
+
+.txt {
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 #head {
     margin-top: 300px;
@@ -30,31 +61,8 @@
     color: white;
 }
 
-html {
-    background: url(../images/Background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.input-group {
+    color: white;
 }
-
-.opacity{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right:0;
-    bottom: 0;
-    height: 100%;
-    width:100%;
-    opacity: 0.8;
-    background-color: black;
-}
-
-.header {
-    height: 150px;
-    background-color: #545454;
-}
-
-
 
 
