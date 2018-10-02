@@ -1,0 +1,59 @@
+
+#head {
+    margin-top: 300px;
+}
+
+#src{
+    justify-content : center;
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+#src2{
+    justify-content : center;
+    width: 40%;
+    margin-left: 400px;
+    margin-top: 20px;
+}
+
+#src3{
+    justify-content : center;
+    width: 40%;
+    margin-left: 400px;
+    margin-top: 20px;
+}
+
+.txt {
+    text-align: center;
+    margin-top: 10px;
+}
+
+html {
+    background: url(../images/Background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.opacity{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    height: 100%;
+    width:100%;
+    opacity: 0.8;
+    background-color: black;
+}
+
+.header {
+    height: 150px;
+    background-color: #545454;
+}
+
+
+
+
