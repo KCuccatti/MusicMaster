@@ -22,13 +22,11 @@ html {
 
 .header {
     height: 150px;
-    background-color: #545454;
 }
 
 .txt {
     text-align: center;
     margin-top: 10px;
-    color: white;
 }
 
 
@@ -57,8 +55,14 @@ html {
     margin-top: 20px;
 }
 
+.txt {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
 
-
-
+.input-group {
+    color: white;
+}
 
 
