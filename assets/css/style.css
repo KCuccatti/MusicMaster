@@ -20,39 +20,32 @@ html {
 }
 
 
-.header {
-    height: 150px;
-}
-
 .txt {
     text-align: center;
     margin-top: 10px;
 }
 
 
-#head {
-    margin-top: 300px;
+.hd {
+    background-color: black;
 }
 
 #src{
     justify-content : center;
     width: 40%;
-    margin-top: 20px;
-    margin-left: 400px;
+    
 }
 
 #src2{
     justify-content : center;
     width: 40%;
-    margin-left: 400px;
-    margin-top: 20px;
+    
 }
 
 #src3{
     justify-content : center;
     width: 40%;
-    margin-left: 400px;
-    margin-top: 20px;
+   
 }
 
 .txt {
