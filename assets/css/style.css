@@ -22,13 +22,12 @@ html {
 
 .header {
     height: 150px;
-    background-color: #545454;
+    margin-left: 20px;
 }
 
 .txt {
     text-align: center;
     margin-top: 10px;
-    color: white;
 }
 
 
@@ -40,25 +39,31 @@ html {
     justify-content : center;
     width: 40%;
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 500px;
 }
 
 #src2{
     justify-content : center;
     width: 40%;
-    margin-left: 400px;
+    margin-left: 500px;
     margin-top: 20px;
 }
 
 #src3{
     justify-content : center;
     width: 40%;
-    margin-left: 400px;
+    margin-left: 500px;
     margin-top: 20px;
 }
 
+.txt {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
 
-
-
+.input-group {
+    color: white;
+}
 
 
