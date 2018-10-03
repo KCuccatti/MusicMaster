@@ -40,7 +40,9 @@ html {
     color: white;
 }
 
-
+#bandContent {
+    margin-top: 8%;
+}
 
 #Logo {
     width: 12%;
