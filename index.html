@@ -15,25 +15,27 @@
     <div class="opacity">
 
 
-        <div class="container-fluid mb-5 " >
-            <div class="row header text-center text-white">
+        <div class="container-fluid mb-5" id="container1">
+            <div class="row header text-center text-white ml-5">
                 <div class="col-12">
-                    <h1 class="mt-4">Live
-                        <img src="./assets/images/MainLogo.png"> Local</h1>
+                    <h1 id="header" class="mt-4">Live
+                        <img id="Logo" src="./assets/images/MainLogo.png"> Local</h1>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid">
-  
-                <div class="txt mx-auto mb-5"> <h3>Search By </h3></div>
+        <div class="container-fluid" id="container2">
 
-            <div class="row">   
+            <div class="txt mx-auto mb-5">
+                <h3>Search By </h3>
+            </div>
+
+            <div class="row">
                 <div class="input-group mx-auto mb-5" id="src">
                     Band Name
-                    <input type="text" class="form-control" aria-label="Search">
+                    <input id="bandTextBox" type="text" class="form-control" aria-label="Search">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-outline-info">
+                        <button id="btn1" type="button" class="btn btn-outline-info">
                             <i class="glyphicon glyphicon-search"></i>
                         </button>
                     </div>
@@ -41,7 +43,7 @@
             </div>
 
 
-            <div class="row">  
+            <div class="row">
                 <div class="input-group mx-auto mb-5" id="src2">
                     Genre
                     <input type="text" class="form-control" aria-label="Search">
@@ -72,7 +74,7 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-        <script src="logic.js"></script>
+        <script src="./assets/js/logic.js"></script>
 
 </body>
 

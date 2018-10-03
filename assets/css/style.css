@@ -30,6 +30,16 @@ html {
     background-color: black;
 }
 
+.input-group {
+    color: white;
+}
+
+.txt {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+
 #src{
     justify-content : center;
     width: 40%;
@@ -48,14 +58,18 @@ html {
    
 }
 
-.txt {
-    text-align: center;
-    margin-top: 10px;
-    color: white;
+#Logo {
+    width: 12%;
 }
 
-.input-group {
-    color: white;
+#container1 {
+    font-size: 28px;
 }
 
+#container2 {
+    font-size:28px;
+}
 
+#header {
+    font-size: 55px;
+}
