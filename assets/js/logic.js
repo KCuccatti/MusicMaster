@@ -13,9 +13,13 @@ $(document).ready(function () {
       method: 'GET'
     }).then(function (response) {
       console.log(response);
+
       var bandImage = response.image_url
       $('#bandImg').append(`<img src="${bandImage}" height=60%"/>`)
       $('#clear').empty();
+
+
+
     });
   })
 })
