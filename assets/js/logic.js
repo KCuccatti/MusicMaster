@@ -7,15 +7,15 @@ $(document).ready(function () {
     var artistname = $('#bandTextBox').val();
     const queryGetBandInfo = `https://rest.bandsintown.com/artists/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
-    
+
     $.ajax({
       url: queryGetBandInfo,
       method: 'GET'
     }).then(function (response) {
       console.log(response);
       var bandImage = response.image_url
-     $('#bandImg').append(`<img src="${bandImage}" height=400"/>`)
-     $('#clear').empty();
+      $('#bandImg').append(`<img src="${bandImage}" height=60%"/>`)
+      $('#clear').empty();
     });
   })
 })
