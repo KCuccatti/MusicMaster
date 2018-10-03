@@ -1,36 +1,48 @@
-$(document).ready(function () {
-  const APIKey = 'f8477fddee9461f418456f94354b3ec8';
+//$(document).ready(function () {
+ 
 
-   let bandName = $('#bandTestBox').val();
-  const queryGetBandInfo = `https://rest.bandsintown.com/artists/${Artist}?app_id=f8477fddee9461f418456f94354b3ec8`;
-  alert(bandName);
+const displayInfo = function() {
 
-  $('#btn1').on('click', function () {
-    event.preventDefault();
-    
+ // const APIKey = 'f8477fddee9461f418456f94354b3ec8';
+  
+ const name = $(this).attr('data-name');
+  const queryURL = `https://rest.bandsintown.com/artists/${name}?app_id=f8477fddee9461f418456f94354b3ec8`;
+  // alert(bandName);
+ 
+   
+    // event.preventDefault();
+  
+     $.ajax({
+       url: queryURL,
+       method: 'GET'
+     }).then(function(response) {
 
-    $.ajax({
-      url: queryGetBandInfo,
-      method: 'GET'
-    }).then(function(response) {
-       console.log(response);
-});
+      console.log(queryURL);
+
+        console.log(response);
+ });
+
+}
+  
+$('#btn1').on('click', displayInfo);
+  
+ 
   
 
-ajaxGetBandInfo();
-  })
+// ajaxGetBandInfo();
+//   })
 
-  function ajaxGetBandInfo() {
-    return $.ajax({
-      type: "GET",
-      url: queryGetBandInfo,
-      datatype: "json",
-      success: getBandInfo()
-    })
-  }
+//   function ajaxGetBandInfo() {
+//     return $.ajax({
+//       type: "GET",
+//       url: queryGetBandInfo,
+//       datatype: "json",
+//       success: getBandInfo()
+//     })
+//   }
 
-  function getBandInfo() {
+//   function getBandInfo() {
   
-  }
+//   }
 
-})
+// })
