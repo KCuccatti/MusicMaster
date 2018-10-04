@@ -57,7 +57,7 @@ $(document).ready(function () {
   function getBandInfo(response) {
    // console.log(response);
     bandImage = response.artist.image[2]["#text"];
-    bio = response.artist.bio.content;
+    bio = response.artist.bio.summary;
   }
 
 
