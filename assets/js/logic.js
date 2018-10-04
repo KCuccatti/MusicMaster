@@ -5,6 +5,8 @@ var bandImage = "";
 var bandSchedule = [];
 var bio = "";
 
+$('#buttons').hide();
+
 $('#btnBio').on('click', function () {
   $('#bandSchedule').hide();
   $('#bandContent').show();
@@ -13,10 +15,14 @@ $('#btnBio').on('click', function () {
 $('#btnSchedule').on('click', function () {
   $('#bandContent').hide();
   $('#bandSchedule').show();
+  if(schedule = []) {
+    $('#');
+  }
 })
 
 
 $('#btn1').on('click', function (event) {
+  $('#buttons').show();
   toggleBackground(true);
   event.preventDefault();
   //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
@@ -37,6 +43,7 @@ $('#btn1').on('click', function (event) {
     }
     schedule = schedule + "</ul>";
     $('#bandSchedule').html(schedule).hide();
+
   });
 })
 
