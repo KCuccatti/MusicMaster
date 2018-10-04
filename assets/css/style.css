@@ -61,4 +61,22 @@ html {
     font-size: 55px;
 }
 
+#header {
+    font-family: 'Special Elite', cursive;
+}
 
+#btnBio {
+    font-family: 'Special Elite', cursive;
+}
+
+#btnSchedule {
+    font-family: 'Special Elite', cursive;
+}
+
+.form-control {
+    font-family: 'Special Elite', cursive;
+}
+
+.col-sm-4 {
+    
+}
