@@ -7,13 +7,13 @@ $(document).ready(function () {
   var bio = "";
 
   $('#btn1').on('click', function (event) {
-    toggleBackground(true);
+    // toggleBackground(true);
     event.preventDefault();
     //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
     $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
       $('#bandImg').html(`<img src="${bandImage}"/>`);
-      $('#bandContent').html(bio);
+      $('#bandContent').html(`<div class = "card-body"> ${bio} </div>`);
       console.log(bandSchedule);  
       let schedule = "<ul>";
       for (let i=0; i<bandSchedule.length; i++) {
