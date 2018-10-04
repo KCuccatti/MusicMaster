@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
   $('#btn1').on('click', function (event) {
-    // toggleBackground(true);
+    //toggleBackground(true);
     event.preventDefault();
     //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
