@@ -8,6 +8,7 @@
     <title>Live and Local</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 </head>
@@ -24,42 +25,42 @@
                             <img id="Logo" src="./assets/images/MainLogo.png"> Local</h1>
 
 
-            <div class="container-fluid ml-5" id="container2">
-                <nav class="navbar navbar-light ">
-                    <div class="form-inline">
-                        <div class="col-sm-4.5">
-                            <input input id="bandTextBox" class="form-control" type="search" value="" placeholder="Band Name" aria-label="Search">
-                            <button id="btn1" class="btn btn-outline-info " type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
+                        <div class="container-fluid ml-5" id="container2">
+                            <nav class="navbar navbar-light ">
+                                <div class="form-inline">
+                                    <div class="col-sm-4.5">
+                                        <input input id="bandTextBox" class="form-control" type="search" value="" placeholder="Band Name" aria-label="Search">
+                                        <button id="btn1" class="btn btn-outline-info " type="submit">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-sm-4.5">
+                                        <input class="form-control " type="search" placeholder="Genre" aria-label="Search">
+                                        <button class="btn btn-outline-info " type="submit">
+
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+
+                                    </div>
+
+                                    <div class="col-sm-4.5">
+                                        <input class="form-control " type="search" placeholder="Location" aria-label="Search">
+                                        <button class="btn btn-outline-info " type="submit">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </nav>
                         </div>
 
-                        <div class="col-sm-4.5">
-                            <input class="form-control " type="search" placeholder="Genre" aria-label="Search">
-                            <button class="btn btn-outline-info " type="submit">
-
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-
+                        <div class="text-center" id="buttons">
+                            <button class="btn btn-primary btn-md" id="btnBio">Bio</button>
+                            <button class="btn btn-primary btn-md" id="btnSchedule">Schedule</button>
                         </div>
 
-                        <div class="col-sm-4.5">
-                            <input class="form-control " type="search" placeholder="Location" aria-label="Search">
-                            <button class="btn btn-outline-info " type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
+
                     </div>
-                </nav>
-            </div>
-
-                    <div class="text-center" id="buttons">
-                        <button class="btn btn-primary btn-md" id="btnBio">Bio</button>
-                        <button class="btn btn-primary btn-md" id="btnSchedule">Schedule</button>
-                    </div>
-
-
-                </div>
                     <div class="col-1 img-fluid" id="bandImgRight"></div>
                 </div>
             </div>
@@ -75,7 +76,8 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script src="./assets/js/logic.js"></script>
 </body>
+
 </html>
