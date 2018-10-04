@@ -6,24 +6,36 @@ $(document).ready(function () {
   var bandSchedule = [];
   var bio = "";
 
+  $('#btnBio').on('click', function(){
+    $('#bandSchedule').hide();
+    $('#bandContent').show();
+  })
+
+  $('#btnSchedule').on('click', function(){
+    $('#bandContent').hide();
+    $('#bandSchedule').show();
+  })
+
+
   $('#btn1').on('click', function (event) {
     toggleBackground(true);
     event.preventDefault();
     //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
     $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
-      $('#bandImg').html(`<img src="${bandImage}"/>`);
+      $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
+      $('#bandImgRight').html(`<img src="${bandImage}"/>`);
       $('#bandContent').html(bio);
       console.log(bandSchedule);  
-      let schedule = "<ul>";
+      let schedule = "";
       for (let i=0; i<bandSchedule.length; i++) {
-        schedule = schedule + "<li>" + 
+        schedule = schedule +  
                             bandSchedule[i].datetime + " - " +
                             bandSchedule[i].country + " - " + 
                             bandSchedule[i].region + " - " + 
                             bandSchedule[i].city + " - " + 
-                            bandSchedule[i].name 
-                            + "</li>";
+                            bandSchedule[i].name + "<br>";
+                            
       }
       schedule = schedule + "</ul>";
       $('#bandSchedule').html(schedule);
@@ -44,7 +56,7 @@ $(document).ready(function () {
   // Gets Band Image 
   function getBandInfo(response) {
    // console.log(response);
-    bandImage = response.artist.image[3]["#text"];
+    bandImage = response.artist.image[2]["#text"];
     bio = response.artist.bio.summary;
   }
 
