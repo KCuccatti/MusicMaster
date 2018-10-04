@@ -15,7 +15,7 @@ html {
     bottom: 0;
     height: 100%;
     width:100%;
-    opacity: 0.8;
+    opacity: 0.9;
     background-color: black;
 }
 
@@ -40,7 +40,10 @@ html {
     color: white;
 }
 
-
+#bandContent {
+    background-color: black;
+    color: yellow;
+}
 
 #Logo {
     width: 12%;
@@ -56,4 +59,24 @@ html {
 
 #header {
     font-size: 55px;
+}
+
+#header {
+    font-family: 'Special Elite', cursive;
+}
+
+#btnBio {
+    font-family: 'Special Elite', cursive;
+}
+
+#btnSchedule {
+    font-family: 'Special Elite', cursive;
+}
+
+.form-control {
+    font-family: 'Special Elite', cursive;
+}
+
+.col-sm-4 {
+    
 }

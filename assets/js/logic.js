@@ -1,55 +1,93 @@
 $(document).ready(function () {
-  const APIKey = "f8477fddee9461f418456f94354b3ec8";
+  const APIKey = 'f8477fddee9461f418456f94354b3ec8';
+  const APIKey2 = `e4d5624dac1c385cf0ee73ab867db27a`;
 
-   let bandName = $('#bandTestBox').val();
-  const queryGetBandInfo = `https://rest.bandsintown.com/artists/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
-  alert(bandName);
+  var bandImage = "";
+  var bandSchedule = [];
+  var bio = "";
 
-  $('#btn1').on('click', function () {
-    event.preventDefault();
-<<<<<<< HEAD
-    
-=======
-    var artistname = $('#bandTextBox').val();
-    const queryGetBandInfo = `https://rest.bandsintown.com/artists/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
-
->>>>>>> 7a6690aa7876f47e61442a7f88536efeb319fc61
-
-    $.ajax({
-      url: queryGetBandInfo,
-      method: 'GET'
-<<<<<<< HEAD
-    }).then(function(response) {
-       console.log(response);
-});
-  
-
-ajaxGetBandInfo();
-=======
-    }).then(function (response) {
-      console.log(response);
-
-      var bandImage = response.image_url
-      $('#bandImg').append(`<img src="${bandImage}" height=60%"/>`)
-      $('#clear').empty();
-
-
-
-    });
->>>>>>> 7a6690aa7876f47e61442a7f88536efeb319fc61
+  $('#btnBio').on('click', function(){
+    $('#bandSchedule').hide();
+    $('#bandContent').show();
   })
 
-  function ajaxGetBandInfo() {
+  $('#btnSchedule').on('click', function(){
+    $('#bandContent').hide();
+    $('#bandSchedule').show();
+  })
+
+
+  $('#btn1').on('click', function (event) {
+    toggleBackground(true);
+    event.preventDefault();
+    //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
+
+    $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
+      $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
+      $('#bandImgRight').html(`<img src="${bandImage}"/>`);
+      $('#bandContent').html(bio);
+      console.log(bandSchedule);  
+      let schedule = "";
+      for (let i=0; i<bandSchedule.length; i++) {
+        schedule = schedule +  
+                            bandSchedule[i].datetime + " - " +
+                            bandSchedule[i].country + " - " + 
+                            bandSchedule[i].region + " - " + 
+                            bandSchedule[i].city + " - " + 
+                            bandSchedule[i].name + "<br>";
+                            
+      }
+      schedule = schedule + "</ul>";
+      $('#bandSchedule').html(schedule);
+    });
+
+
+  })
+
+  function ajaxGetBandInfo(artistname) {
     return $.ajax({
       type: "GET",
-      url: queryGetBandInfo,
+      url: `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistname}&api_key=e4d5624dac1c385cf0ee73ab867db27a&format=json`,
       datatype: "json",
-      success: getBandInfo()
-    })
+      success: getBandInfo,
+    });
   }
 
-  function getBandInfo() {
+  // Gets Band Image 
+  function getBandInfo(response) {
+   // console.log(response);
+    bandImage = response.artist.image[2]["#text"];
+    bio = response.artist.bio.summary;
+  }
+
+
+  function ajaxGetBandSchedule(artistname) {
+    return $.ajax({
+      type: "GET",
+      url: `https://rest.bandsintown.com/artists/${artistname}/events/?app_id=f8477fddee9461f418456f94354b3ec8&date=upcoming`,
+      datatype: "json",
+      success: getBandSchedule,
+    });
+  }
+
+  // Gets Band Schedule
+  function getBandSchedule(response) {
+    bandSchedule = [];
+    for (let i=0; i<response.length; i++) {
+      bandSchedule.push({ datetime: response[i].datetime.substring(0,10), country: response[i].venue.country, city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region });
+    }
   
+  }
+
+
+
+  function toggleBackground(display) {
+    if (!display) {
+      $('html').css('background', "");
+    } else {
+      $('html').css('background-image', "url(../images/Background.jpg)");
+    }
   }
 
 })
+
