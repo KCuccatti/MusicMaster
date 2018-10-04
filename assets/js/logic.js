@@ -60,10 +60,11 @@ $(document).ready(function () {
 
   // Gets Band Schedule
   function getBandSchedule(response) {
+    bandSchedule = [];
     for (let i=0; i<response.length; i++) {
       bandSchedule.push({ datetime: response[i].datetime.substring(0,10), country: response[i].venue.country, city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region });
     }
-    //console.log(response);
+  
   }
 
 
