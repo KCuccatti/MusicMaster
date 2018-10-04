@@ -41,7 +41,8 @@ html {
 }
 
 #bandContent {
-    margin-top: 8%;
+    background-color: black;
+    color: yellow;
 }
 
 #Logo {
