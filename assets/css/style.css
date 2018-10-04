@@ -20,24 +20,7 @@ html {
     overflow: scroll;
 }
 
-
-.txt {
-    text-align: center;
-    margin-top: 10px;
-}
-
-
-.hd {
-    background-color: black;
-}
-
 .input-group {
-    color: white;
-}
-
-.txt {
-    text-align: center;
-    margin-top: 10px;
     color: white;
 }
 
@@ -48,6 +31,7 @@ html {
 
 #Logo {
     width: 12%;
+    margin-bottom: -20px;
 }
 
 #container1 {
@@ -59,7 +43,7 @@ html {
 }
 
 #header {
-    font-size: 55px;
+    font-size: 80px;
 }
 
 #header {
@@ -78,6 +62,3 @@ html {
     font-family: 'Special Elite', cursive;
 }
 
-.col-sm-4 {
-    
-}
