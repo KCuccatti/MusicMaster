@@ -22,6 +22,8 @@ $(document).ready(function () {
     event.preventDefault();
     //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
+  
+
     $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
       $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
       $('#bandImgRight').html(`<img src="${bandImage}"/>`);
@@ -78,6 +80,7 @@ $(document).ready(function () {
   function toggleBackground(display) {
     if (!display) {
       $('html').css('background', "");
+      
     } else {
       $('html').css('background-image', "url(../images/Background.jpg)");
     }
