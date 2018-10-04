@@ -25,8 +25,7 @@ $(document).ready(function () {
     $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
       $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
       $('#bandImgRight').html(`<img src="${bandImage}"/>`);
-      $('#bandContent').html(bio);
-      console.log(bandSchedule);  
+      $('#bandContent').html(bio);  
       let schedule = "";
       for (let i=0; i<bandSchedule.length; i++) {
         schedule = schedule +  
@@ -38,10 +37,8 @@ $(document).ready(function () {
                             
       }
       schedule = schedule + "</ul>";
-      $('#bandSchedule').html(schedule);
+     $('#bandSchedule').html(schedule).hide();
     });
-
-
   })
 
   function ajaxGetBandInfo(artistname) {
@@ -55,9 +52,8 @@ $(document).ready(function () {
 
   // Gets Band Image 
   function getBandInfo(response) {
-   // console.log(response);
     bandImage = response.artist.image[2]["#text"];
-    bio = response.artist.bio.content;
+    bio = response.artist.bio.summary;
   }
 
 
@@ -76,9 +72,7 @@ $(document).ready(function () {
     for (let i=0; i<response.length; i++) {
       bandSchedule.push({ datetime: response[i].datetime.substring(0,10), country: response[i].venue.country, city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region });
     }
-  
   }
-
 
 
   function toggleBackground(display) {
