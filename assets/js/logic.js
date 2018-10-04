@@ -5,6 +5,7 @@ var bandImage = "";
 var bandSchedule = [];
 var bio = "";
 
+$('#bandTextBox').focus();
 $('#buttons').hide();
 
 $('#btnBio').on('click', function () {
@@ -13,24 +14,39 @@ $('#btnBio').on('click', function () {
 })
 
 $('#btnSchedule').on('click', function () {
+  if (!Array.isArray(bandSchedule) || !bandSchedule.length) {
+    // array does not exist, is not an array, or is empty
+      $('#bandSchedule').html("There are no upcoming events for this artist/band");
+      $('.bg-red').css({"color":"red"});
+  }
+  else {
+    $('#bandSchedule').css('color', 'white');
+
+  }
+
   $('#bandContent').hide();
   $('#bandSchedule').show();
-  if(schedule = []) {
-    $('#');
-  }
 })
 
+$("#bandTextBox").on('keyup', function (e) {
+  if (e.keyCode == 13) {
+      $('#btn1').click();
+  }
+});
 
 $('#btn1').on('click', function (event) {
   $('#buttons').show();
+  $('#bandContent').show();
   toggleBackground(true);
-  event.preventDefault();
   //  const queryGetBandContent = `https://rest.bandsintown.com/artists/ArtistData/${artistname}?app_id=f8477fddee9461f418456f94354b3ec8`;
 
   $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
     $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
     $('#bandImgRight').html(`<img src="${bandImage}"/>`);
+   
     $('#bandContent').html(bio);
+  
+
     let schedule = "";
     for (let i = 0; i < bandSchedule.length; i++) {
       schedule = schedule +
@@ -59,7 +75,8 @@ function ajaxGetBandInfo(artistname) {
 // Gets Band Image 
 function getBandInfo(response) {
   bandImage = response.artist.image[2]["#text"];
-  bio = response.artist.bio.summary;
+  bio = "<h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Bio:</h1>" + response.artist.bio.summary;
+ 
 }
 
 
@@ -76,26 +93,21 @@ function ajaxGetBandSchedule(artistname) {
 function getBandSchedule(response) {
   bandSchedule = [];
   for (let i = 0; i < response.length; i++) {
-    bandSchedule.push({ datetime: response[i].datetime.substring(0, 10), country: response[i].venue.country, city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region });
+    bandSchedule.push({ datetime: response[i].datetime.substring(0, 10), country: response[i].venue.country, 
+                        city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region });
   }
 }
 
 
 function toggleBackground(display) {
   if (!display) {
-    $('html').css('background', "");
+    $('html').css('background', '');
   } else {
     $('html').css('background-image', "url(../images/Background.jpg)");
   }
 }
 
 
-function submitOnEnter() {
-  $("#bandTextBox").keypress(function (event) {
-    if (event.keyCode == 13) {
-      $("#btn1").click();
-    }
-  });
-}
+
 
 
