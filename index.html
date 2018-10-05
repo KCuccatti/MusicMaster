@@ -22,11 +22,14 @@
             <div class="container-fluid mb-5" id="container1">
                 <div class="row header text-center text-white ml-5">
 
-
                     <div class="col-1 img-fluid" id="bandImgLeft"></div>
                     <div class="col-10">
-                        <h1 id="header" class="mt-4">Live
-                            <img id="Logo" src="./assets/images/MainLogo.png"> Local</h1>
+                        <h1 id="header" class="mt-4">
+                            <a href = "index.html">
+                            Live
+                            <img id="Logo" src="./assets/images/MainLogo.png"> Local
+                        </a>
+                    </h1>
                     </div>
                     <div class="col-1 img-fluid" id="bandImgRight"></div>
                 </div>
@@ -37,33 +40,28 @@
                 <nav class="navbar navbar-light ">
 
                     <div class="form-inline">
-                        <div class="col-sm-4">
-                            <input id="bandTextBox" class="form-control" type="search" value="" placeholder="Band Name" aria-label="Search">
-                            <button id="searchBtn1" class="btn btn-outline-info" type="submit">
+                        
+                            <input id="bandTextBox" class="form-control input-lg" type="search" value="" placeholder="Band Name" aria-label="Search">
+                            <button id="searchBtn1" class="btn btn-outline-info btn-lg" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
-                        </div>
+                        
 
-                        <div class="col-sm-4">
-                            <input class="form-control" id="bandGenreBox" type="search" value="" placeholder="Genre">
-                            <button id="searchBtn2" class="btn btn-outline-info" type="submit">
+                        
+                            <input class="form-control input-lg" id="bandGenreBox" type="search" value="" placeholder="Genre">
+                            <button id="searchBtn2" class="btn btn-outline-info btn-lg" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                                              
+                            <input id = "cityName" class="form-control input-lg " type="search" placeholder="Location" aria-label="Search">
+                            <button id= "btn3" class="btn btn-outline-info btn-lg " type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
 
-                        </div>
-
-                        <div class="col-sm-4">
-                            <input class="form-control " type="search" placeholder="Location" aria-label="Search">
-                            <button class="btn btn-outline-info " type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
                     </div>
                 </nav>
             </div>
             <!-- End form div-->
-
-
 
 
         </div>
@@ -77,14 +75,12 @@
         </div>
 
         <div class="container-fluid justify-content-center" id="content">
-            <div class="text-white text-center" id="bandContent"></div>
+            <div class="text-white text-center" id="bandContent">
+            </div>
             <div class="text-white" id="bandSchedule"></div>
         </div>
     </div>
     <!-- End opacity div-->
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

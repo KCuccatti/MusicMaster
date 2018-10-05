@@ -152,6 +152,7 @@ function getBandSchedule(response) {
       city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region
     });
   }
+ // console.log(response);
 }
 
 // 
@@ -174,4 +175,29 @@ function toggleBackground(display) {
 
 
 
+// function ajaxGetEvents() {
 
+//  // const cityName =  $(this).attr('.data-name');
+
+//   return $.ajax({
+//     type: "GET",
+//     url: `https://rest.bandsintown.com/events?app_id=f8477fddee9461f418456f94354b3ec8&date=upcoming`,
+//     datatype: "json",
+//     success: getCityEvents,
+//   });
+// }
+
+// function getCityEvents(response){
+
+//   console.log(response);
+// }
+
+
+// $('#btn3').on('click', function (event) {
+
+//   $.when(ajaxGetEvents($('#cityName').val()).done(function (a1, a2) {
+
+ 
+//   }))
+
+// })
