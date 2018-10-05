@@ -24,11 +24,22 @@ html {
     color: white;
 }
 
+.topNumber {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.form-control {
+    font-family: 'Special Elite', cursive;
+}
+
 #bandContent {
     background-color: black;
     color: yellow;
-    font-size: 30px;
+    font-family: 'Special Elite', cursive;
+    text-align: justify;
 }
+
 
 #Logo {
     width: 12%;
@@ -45,24 +56,37 @@ html {
 
 #header {
     font-size: 80px;
-}
-
-#header {
     font-family: 'Special Elite', cursive;
 }
+
 
 #btnBio {
     font-family: 'Special Elite', cursive;
 }
 
 #btnSchedule {
+    font-family: 'Special Elite',  cursive;
+}
+
+
+#content {
+    width:70%;
+}
+
+#bandContent {
+    text-align: justify;
+}
+
+#bandSchedule {
+    text-align: center;
     font-family: 'Special Elite', cursive;
 }
 
-.form-control {
-    font-family: 'Special Elite', cursive;
+#header a {
+    text-decoration: none;
+    color: white;
 }
 
 .btn-lg {
-    margin-right: 30px;
-}
+    margin-right: 10px;
+}  
