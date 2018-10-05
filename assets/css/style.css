@@ -27,6 +27,7 @@ html {
 #bandContent {
     background-color: black;
     color: yellow;
+    font-size: 30px;
 }
 
 #Logo {
@@ -62,3 +63,6 @@ html {
     font-family: 'Special Elite', cursive;
 }
 
+.btn-lg {
+    margin-right: 30px;
+}
