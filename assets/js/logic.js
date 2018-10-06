@@ -111,11 +111,10 @@ $('#searchBtn2').on('click', function () {
     let genre = "<br><h2>*** " + $('#genreTextBox').val().toUpperCase() + " Top 10 List ***</h2>";
 
     // Loop through the first 10 top artist images and put them on the page 
-
     for (let i = 0; i < bandTop10.length; i++) {
       genre = genre +
         "<br><br>" +
-        "<img src='" + bandTop10[i].img + "'/>" +
+        '<img class="top" src="' + bandTop10[i].img + '" id="' + bandTop10[i].name + '"/>' +
         "<br>" +
         bandTop10[i].name +
         " (<label class='topNumber'> #" + (i + 1) + "</label>)" +
@@ -125,12 +124,16 @@ $('#searchBtn2').on('click', function () {
     $('#genreTextBox').val('');
   }))
 
+
 })
+
+
+
 
 $('#searchBtn3').on('click', function () {
   toggleBackground(true);
 
-  $.when(ajaxGetEvents($('#locationTextBox').val()).done(function (a1) {
+  $.when(ajaxGetEvents($('#locationDropDown').val()).done(function (a1) {
 
     let events = "<br><h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Upcoming Events</h1>" + '';
 
@@ -151,7 +154,9 @@ $('#searchBtn3').on('click', function () {
 })
 
 
-// Gets the band information from the API 
+
+
+// Gets band information from the API 
 function ajaxGetBandInfo(artistname) {
   return $.ajax({
     type: "GET",
@@ -161,7 +166,7 @@ function ajaxGetBandInfo(artistname) {
   });
 }
 
-// Gets the band schedule from the API 
+// Gets band schedule from the API 
 function ajaxGetBandSchedule(artistname) {
   return $.ajax({
     type: "GET",
@@ -181,7 +186,7 @@ function ajaxGetBandTop10(bandTop10) {
   });
 }
 
-//gets the events on the state the user inputs
+// Gets the upcomings events of a state from API
 function ajaxGetEvents(stateCode) {
 
   return $.ajax({
@@ -206,11 +211,10 @@ function getBandSchedule(response) {
   bandSchedule = [];
   for (let i = 0; i < response.length; i++) {
     bandSchedule.push({
-      datetime: response[i].datetime, country: response[i].venue.country,
+      datetime: response[i].datetime.substring(0, 10), country: response[i].venue.country,
       city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region
     });
   }
-  // console.log(response);
 }
 
 // Pushes 10 of the top artists in a given genre to the bandTop10 array
@@ -221,7 +225,7 @@ function getBandTop10(response) {
   }
 }
 
-//function to  get all the events data from the api
+// Function to  get all the events data from the API
 function getCityEvents(response) {
 
   cityEvents = [];
@@ -265,6 +269,7 @@ $('#genreTextBox').on('keyup', function (e) {
   }
 })
 
+// Enter key submits text box input
 $('#locationTextBox').on('keyup', function (e) {
   if (event.which == 13 || event.keyCode == 13) {
     $('#searchBtn3').trigger('click');
