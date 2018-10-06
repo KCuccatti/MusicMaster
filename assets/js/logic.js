@@ -5,13 +5,46 @@ var bio = "";
 var bandTop10 = [];
 
 // Set focus on first textbox and hide buttons when page loads
-$('#bandTextBox').focus();
-$('#buttons').hide();
+$('#buttons, #bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn').hide();
+
+
+$('#homeButtons').on('click', function () {
+  $('#homeBtn').show();
+  $('#genreBtn, #locationBtn, #bandNameBtn').hide();
+})
+
 
 // When bio button is clicked, hide band schedule then show band bio 
 $('#btnBio').on('click', function () {
   $('#bandSchedule').hide();
   $('#bandContent').show();
+})
+
+$('#homeBtn').on('click', function () {
+  $('#searchBy, #bandNameBtn, #genreBtn, #locationBtn').show();
+  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #btnBio, #btnSchedule, #bandImgLeft, #bandImgRight, #bandSchedule').hide();
+})
+
+$('#bandNameBtn, #genreBtn, #locationBtn').on('click', function () {
+  $('#bandTextBox, #genreTextBox, #locationTextBox').val('');
+  $('#bandNameBtn, #genreBtn, #locationBtn, #searchBy').hide();
+  $('#homeBtn').show();
+
+  if (this.id == 'bandNameBtn') {
+    $('#bandSearchDiv').show();
+    $('#bandTextBox').focus();
+  }
+
+  if (this.id == 'genreBtn') {
+    $('#genreSearchDiv').show();
+    $('#genreTextBox').focus();
+  }
+
+  if (this.id == 'locationBtn') {
+    $('#locationSearchDiv').show();
+    $('#locationTextBox').focus();
+  }
+
 })
 
 
@@ -28,27 +61,11 @@ $('#btnSchedule').on('click', function () {
 })
 
 
-// Allows the enter key to submit the button form
-$("#bandTextBox").on('keyup', function (e) {
-  if (e.keyCode == 13) {
-    $('#searchBtn1').click();
-  }
-});
-
-// Same as function directly above
-$("#bandGenreBox").on('keyup', function (e) {
-  if (e.keyCode == 13) {
-    $('#searchBtn2').click();
-  }
-});
-
-
 // When first search button is clicked, show the bio and schedule buttons,
 // show the desired band content, and set the genre text box's value to nothing.
 $('#searchBtn1').on('click', function () {
-  $('#buttons').show();
-  $('#bandContent').show();
-  $('#bandGenreBox').val('');
+  $('#buttons, #bandContent, #btnSchedule, #btnBio, #bandImgLeft, #bandImgRight').show();
+  $('#bandSearchDiv').hide();
   toggleBackground(true);
 
 
@@ -59,7 +76,6 @@ $('#searchBtn1').on('click', function () {
     $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
     $('#bandImgRight').html(`<img src="${bandImage}"/>`);
     $('#bandContent').html(bio);
-
 
     let schedule = "";
     // Loop through schedule array provided by the API, and puts it on the page
@@ -82,16 +98,17 @@ $('#searchBtn1').on('click', function () {
 // of first text box to nothing.
 $('#searchBtn2').on('click', function () {
   toggleBackground(true);
-  $('#buttons').hide();
-  $('#bandTextBox').val('');
+  $('#bandImgLeft, #bandImgRight, #buttons').hide();
+  $('#bandContent').show();
 
 
-  $.when(ajaxGetBandTop10($('#bandGenreBox').val()).done(function (a1) {
-    let genre = '';
+  $.when(ajaxGetBandTop10($('#genreTextBox').val()).done(function (a1) {
+
+    let genre = "<br><h2>*** " + $('#genreTextBox').val().toUpperCase() + " Top 10 List ***</h2>";
 
     // Loop through the first 10 top artist images and put them on the page 
+
     for (let i = 0; i < bandTop10.length; i++) {
-      console.log(bandTop10[i].img);
       genre = genre +
         "<br><br>" +
         "<img src='" + bandTop10[i].img + "'/>" +
@@ -101,8 +118,9 @@ $('#searchBtn2').on('click', function () {
         "<br>";
     }
     $('#bandContent').html(genre);
-
+    $('#genreTextBox').val('');
   }))
+
 })
 
 // Gets the band information from the API 
@@ -112,6 +130,7 @@ function ajaxGetBandInfo(artistname) {
     url: `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistname}&api_key=e4d5624dac1c385cf0ee73ab867db27a&format=json`,
     datatype: "json",
     success: getBandInfo,
+    error: bandNotFound,
   });
 }
 
@@ -138,23 +157,26 @@ function ajaxGetBandTop10(bandTop10) {
 
 // Sets bandImage and bio variables equal to their necessary JSON equilivents respectively 
 function getBandInfo(response) {
-  bandImage = response.artist.image[2]["#text"];
-  bio = "<h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Bio:</h1>" + response.artist.bio.summary;
-}
+  console.log(response);
+    bandImage = response.artist.image[2]["#text"];
+    bio = "<h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Bio:</h1>" + response.artist.bio.summary;
+} 
 
 
-// 
+
+
+// Pushes the information of the band schedule to bandSchedule
 function getBandSchedule(response) {
   bandSchedule = [];
   for (let i = 0; i < response.length; i++) {
     bandSchedule.push({
-      datetime: response[i].datetime.substring(0, 10), country: response[i].venue.country,
+      datetime: response[i].datetime, country: response[i].venue.country,
       city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region
     });
   }
 }
 
-// 
+// Pushes 10 of the top artists in a given genre to the bandTop10 array
 function getBandTop10(response) {
   bandTop10 = [];
   for (let i = 0; i < 10; i++) {
@@ -171,7 +193,21 @@ function toggleBackground(display) {
   }
 }
 
+// Enter key submits text box input
+$('#bandTextBox').on('keyup', function (e) {
+  if (event.which == 13 || event.keyCode == 13) {
+    $('#searchBtn1').trigger('click');
+  }
+})
 
+// Enter key submits text box input
+$('#genreTextBox').on('keyup', function (e) {
+  if (event.which == 13 || event.keyCode == 13) {
+    $('#searchBtn2').trigger('click');
+  }
+})
 
-
-
+function bandNotFound() {
+  console.log() 
+  bio = "<h1 class=mb-4 style='font-size: 1.8em; We are sorry, no information could be found for the artist/band you have chosen";
+}
