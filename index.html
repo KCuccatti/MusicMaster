@@ -38,20 +38,15 @@
 
                     <div class="form-inline">
                         <div class="col-sm-4">
-                            <input id="bandTextBox" class="form-control" type="search" value="Breaking Benjamin" placeholder="" aria-label="Search">
-                            <button id="btn1" class="btn btn-outline-info" type="submit">
+                            <input id="bandTextBox" class="form-control" type="search" value="" placeholder="Band Name" aria-label="Search">
+                            <button id="searchBtn1" class="btn btn-outline-info" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
 
                         <div class="col-sm-4">
-                            <input class="form-control" type="search" data-toggle="dropdown">
-                            <button class="btn btn-outline-info" type="submit">
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="Country" href="#">Action</a>
-                                    <a class="Rock" href="#">Another action</a>
-                                    <a class="Hip-hop" href="#">Something else here</a>
-                                </div>
+                            <input class="form-control" id="bandGenreBox" type="search" value="" placeholder="Genre">
+                            <button id="searchBtn2" class="btn btn-outline-info" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
 
@@ -77,14 +72,16 @@
         <div class="text-center mb-4" id="buttons">
             <button class="btn btn-primary btn-md" id="btnBio">Bio</button>
             <button class="btn btn-primary btn-md" id="btnSchedule">Schedule</button>
+            <button class="btn btn-primary btn-md" id="btnTop50">Top 50</button>
+
         </div>
 
-        <div class="container-fluid justify-content-center" style="width:70%;">
-            <div class="text-white" id="bandContent" style="text-align: justify; font-family: 'Special Elite', cursive;"></div>
-            <div class="text-white bg-red" id="bandSchedule" style="text-align: center; font-family: 'Special Elite', cursive;"></div>
-            
-        
-    </div> <!-- End opacity div-->
+        <div class="container-fluid justify-content-center" id="content">
+            <div class="text-white text-center" id="bandContent"></div>
+            <div class="text-white" id="bandSchedule"></div>
+        </div>
+    </div>
+    <!-- End opacity div-->
 
 
 
