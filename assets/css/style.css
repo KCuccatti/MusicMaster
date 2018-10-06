@@ -81,3 +81,12 @@ html {
     text-align: center;
     font-family: 'Special Elite', cursive;
 }
+
+#header a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-lg {
+    margin-right: 10px;
+}  

@@ -3,6 +3,7 @@ var bandImage = "";
 var bandSchedule = [];
 var bio = "";
 var bandTop10 = [];
+var events = [];
 
 // Set focus on first textbox and hide buttons when page loads
 $('#buttons, #bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn').hide();
@@ -64,8 +65,10 @@ $('#btnSchedule').on('click', function () {
 // When first search button is clicked, show the bio and schedule buttons,
 // show the desired band content, and set the genre text box's value to nothing.
 $('#searchBtn1').on('click', function () {
+
   $('#buttons, #bandContent, #btnSchedule, #btnBio, #bandImgLeft, #bandImgRight').show();
   $('#bandSearchDiv').hide();
+
   toggleBackground(true);
 
 
@@ -76,6 +79,8 @@ $('#searchBtn1').on('click', function () {
     $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
     $('#bandImgRight').html(`<img src="${bandImage}"/>`);
     $('#bandContent').html(bio);
+    $('#bandImgLeft').show();
+    $('#bandImgRight').show();
 
     let schedule = "";
     // Loop through schedule array provided by the API, and puts it on the page
@@ -98,9 +103,9 @@ $('#searchBtn1').on('click', function () {
 // of first text box to nothing.
 $('#searchBtn2').on('click', function () {
   toggleBackground(true);
+
   $('#bandImgLeft, #bandImgRight, #buttons').hide();
   $('#bandContent').show();
-
 
   $.when(ajaxGetBandTop10($('#genreTextBox').val()).done(function (a1) {
 
@@ -130,7 +135,6 @@ function ajaxGetBandInfo(artistname) {
     url: `http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistname}&api_key=e4d5624dac1c385cf0ee73ab867db27a&format=json`,
     datatype: "json",
     success: getBandInfo,
-    error: bandNotFound,
   });
 }
 
@@ -174,6 +178,7 @@ function getBandSchedule(response) {
       city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region
     });
   }
+  // console.log(response);
 }
 
 // Pushes 10 of the top artists in a given genre to the bandTop10 array
@@ -207,7 +212,64 @@ $('#genreTextBox').on('keyup', function (e) {
   }
 })
 
-function bandNotFound() {
-  console.log() 
-  bio = "<h1 class=mb-4 style='font-size: 1.8em; We are sorry, no information could be found for the artist/band you have chosen";
+$('#searchBtn3').on('click', function () {
+  toggleBackground(true);
+  $('#bandGenreBox').val('');
+  $('#bandTextBox').val('');
+  $('#bandImgLeft').hide();
+  $('#bandImgRight').hide();
+
+  $.when(ajaxGetEvents($('#bandStateBox').val()).done(function (a1) {
+
+    let events = "<h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Upcoming Events</h1>" + '';
+
+    for (let i = 0; i < cityEvents.length; i++) {
+      events = events + "<br>" +
+        cityEvents[i].date + " - " +
+        cityEvents[i].country + " - " +
+        cityEvents[i].state + " - " +
+        cityEvents[i].city + " - " +
+        cityEvents[i].name + "<br>"
+    }
+
+    $('#bandContent').html(events);
+
+
+  }))
+
+})
+
+
+//gets the events on the state the user inputs
+function ajaxGetEvents(stateCode) {
+
+  return $.ajax({
+    type: "GET",
+    url: `https://app.ticketmaster.com/discovery/v2/events?apikey=unG33A5iKl7rEv9Ya9shIelxxXBaskA7&size=50&sort=date,asc&stateCode=${stateCode}&classificationName=music`,
+    datatype: "json",
+    success: getCityEvents,
+  });
 }
+
+
+//function to  get all the events data from the api
+function getCityEvents(response) {
+
+  cityEvents = [];
+
+  console.log(response._embedded.events);
+
+  for (let i = 0; i < 20; i++) {
+    cityEvents.push({
+      name: response._embedded.events[i].name,
+      date: response._embedded.events[i].dates.start.localDate,
+      city: response._embedded.events[i]._embedded.venues[0].city.name,
+      state: response._embedded.events[i]._embedded.venues[0].state.name,
+      country: response._embedded.events[i]._embedded.venues[0].country.countryCode
+    });
+    cityEvents.sort();
+  }
+
+}
+
+
