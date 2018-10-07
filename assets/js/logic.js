@@ -5,44 +5,39 @@ var bio = "";
 var bandTop10 = [];
 var events = [];
 
-// Set focus on first textbox and hide buttons when page loads
+
+// Hide necessary elements on page load.
 $('#buttons, #bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn').hide();
 
-
-$('#homeButtons').on('click', function () {
+/*
+// On click of any of the three home page buttons, show home button, and hide main buttons.
+$('#mainButtons').on('click', function () {
   $('#homeBtn').show();
   $('#genreBtn, #locationBtn, #bandNameBtn').hide();
 })
+*/
 
-
-// When bio button is clicked, hide band schedule then show band bio 
-$('#btnBio').on('click', function () {
-  $('#bandSchedule').hide();
-  $('#bandContent').show();
-})
-
-
-$('#homeBtn').on('click', function () {
-  $('#searchBy, #bandNameBtn, #genreBtn, #locationBtn').show();
-  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #btnBio, #btnSchedule, #bandImgLeft, #bandImgRight, #bandSchedule').hide();
-})
-
-
+// If any of the three home buttons are clicked, set val of necessary text boxes to nothing.
+// Also, hide the three main buttons and the 'search by' text.
 $('#bandNameBtn, #genreBtn, #locationBtn').on('click', function () {
   $('#bandTextBox, #genreTextBox, #locationTextBox').val('');
   $('#bandNameBtn, #genreBtn, #locationBtn, #searchBy').hide();
   $('#homeBtn').show();
+  $('#formDiv').show();
 
+  // If band name button is clicked, show div for that buttons' functionality.
   if (this.id == 'bandNameBtn') {
     $('#bandSearchDiv').show();
     $('#bandTextBox').focus();
   }
 
+    // If genre button is clicked, show the div for that buttons' functionality.
   if (this.id == 'genreBtn') {
     $('#genreSearchDiv').show();
     $('#genreTextBox').focus();
   }
 
+    // If location button is clicked, show div for that functionality.
   if (this.id == 'locationBtn') {
     $('#locationSearchDiv').show();
     $('#locationTextBox').focus();
@@ -50,12 +45,18 @@ $('#bandNameBtn, #genreBtn, #locationBtn').on('click', function () {
 
 })
 
+// When 'Bio' button is clicked, hide band schedule then show band bio.
+$('#btnBio').on('click', function () {
+  $('#bandSchedule').hide();
+  $('#bandContent').show();
+})
 
-// On click of 'schedule' button, checks if the band has any upcoming events
-// and hides band bio then shows band schedule
+
+// On click of 'Schedule' button, checks if the band has any upcoming events,
+// hides band bio then shows band schedule.
 $('#btnSchedule').on('click', function () {
   if (!Array.isArray(bandSchedule) || !bandSchedule.length) {
-    // array does not exist, is not an array, or is empty
+    // Array does not exist, is not an array, or is empty
     $('#bandSchedule').html("There are no upcoming events for this artist/band.");
   }
 
@@ -64,10 +65,17 @@ $('#btnSchedule').on('click', function () {
 })
 
 
+$('#homeBtn').on('click', function () {
+  $('#searchBy, #mainButtonsDiv, #bandNameBtn, #genreBtn, #locationBtn').show();
+  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #btnBio, ' +
+  '#btnSchedule, #bandImg, #bandSchedule').hide();
+})
+
+
 // When first search button is clicked, show the bio and schedule buttons,
 // show the desired band content, and set the genre text box's value to nothing.
 $('#searchBtn1').on('click', function () {
-  $('#buttons, #bandContent, #btnSchedule, #btnBio, #bandImgLeft, #bandImgRight').show();
+  $('#buttons, #bandContent, #btnSchedule, #btnBio, #bandImg').show();
   $('#bandSearchDiv').hide();
   toggleBackground(true);
 
@@ -76,10 +84,9 @@ $('#searchBtn1').on('click', function () {
   $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2, a3) {
 
     // Put the left and right images on the page, as well as the band bio information.
-    $('#bandImgLeft').html(`<img src="${bandImage}"/>`);
-    $('#bandImgRight').html(`<img src="${bandImage}"/>`);
+    $('#bandImg').html(`<img src="${bandImage}"/>`);
     $('#bandContent').html(bio);
-    $('#bandImgLeft, #bandImgRight').show();
+    $('#bandImgLeft').show();
 
     let schedule = "";
     // Loop through schedule array provided by the API, and puts it on the page
@@ -102,7 +109,8 @@ $('#searchBtn1').on('click', function () {
 // of first text box to nothing.
 $('#searchBtn2').on('click', function () {
   toggleBackground(true);
-  $('#bandImgLeft, #bandImgRight, #buttons').hide();
+  $('#bandImg, #buttons').hide();
+  $('#bandContent').html("");
   $('#bandContent').show();
 
 
@@ -126,8 +134,6 @@ $('#searchBtn2').on('click', function () {
 
 
 })
-
-
 
 
 $('#searchBtn3').on('click', function () {
