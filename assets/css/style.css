@@ -33,25 +33,32 @@ html {
     font-family: 'Special Elite', cursive;
 }
 
-#bandContent {
-    background-color: black;
-    color: yellow;
-    font-family: 'Special Elite', cursive;
-    text-align: justify;
-}
+.btn-lg {
+    margin-right: 10px;
+}  
 
 
-#Logo {
-    width: 12%;
-    margin-bottom: -20px;
+img.centerLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#bandImg {
+    display: none;
+}
+
+#bandNameBtn, #genreBtn, #locationBtn {
+    padding: 20px 40px 20px 40px;
+}
+
 
 #container1 {
     font-size: 28px;
 }
 
 #container2 {
-    font-size:28px;
+    font-size:1.5em;
 }
 
 #header {
@@ -60,24 +67,119 @@ html {
 }
 
 
-#btnBio {
-    font-family: 'Special Elite', cursive;
-}
-
-#btnSchedule {
-    font-family: 'Special Elite',  cursive;
-}
-
-
 #content {
     width:70%;
 }
 
 #bandContent {
+    background-color: black;
+    font-family: 'Special Elite', cursive;
     text-align: justify;
 }
 
 #bandSchedule {
     text-align: center;
     font-family: 'Special Elite', cursive;
+}
+
+#header a {
+    text-decoration: none;
+    color: white;
+}
+
+#bandSearchDiv, #genreSearchDiv, #locationSearchDiv {
+    margin-left: 20px;
+    margin-bottom: 40px;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 3s;
+}
+
+
+/* Animations */
+#Logo {
+    width: 18%;
+    -webkit-animation: bounceInRight 2s;
+    animation: bounceInRight 2s;
+
+}
+
+#searchBy {
+    font-size: 1.8em;
+    -webkit-animation: bounceInLeft 2s;
+    animation: bounceInLeft 2s;
+}
+
+#mainButtonsDiv {
+    -webkit-animation: bounceInUp 2s;
+    animation: bounceInUp 2s;
+}
+
+.centerHome { 
+    display: flex; justify-content: center; 
+}
+
+.centerForm {
+    display: flex; justify-content: center; 
+}
+
+#homeBtn {
+    display:none;
+    padding: 20px 40px 20px 40px;
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
+}
+
+#formDiv {
+    text-align: center;
+    display:none;
+}
+
+#bandImg {
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
+}
+
+#buttons {
+    display:none;
+    font-family: 'Special Elite', cursive;
+    margin-bottom: 80px;
+    -webkit-animation: fadeIn 1.5s;
+    animation: fadeIn 1.5s;
+}
+
+@media only screen and (max-width: 640px) {
+   
+ #header {
+     width: 100%;
+ }   
+
+#Logo {
+    width: 60%;
+    
+}
+
+.col-10 {
+    margin-left: -35px;
+}
+
+
+#homeButtonsDiv {
+    margin-right: 350px;
+}
+
+ .test{
+    width: 200px;
+    margin-bottom: 20px;
+    margin-right: 250px;
+    margin-left: 50px;
+}
+
+#homeButtonsDiv{
+    margin-right: 20px;
+}
+
+.form-inline {
+    margin-right: 50px;
+}
+
 }
