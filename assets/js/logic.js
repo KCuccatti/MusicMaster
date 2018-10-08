@@ -76,14 +76,16 @@ $('#homeBtn').on('click', function () {
 // When "Band name" search button is clicked, show the bio and schedule buttons, show the band 
 // content, and toggle different background.
 $('#searchBtn1').on('click', function () {
-
+$('#bandImg').hide();
   switchToBandNameView(); // Show/Hide various content relavent/not relevant to band name view.
 
   // When the ajax calls and the funtions within those calls are finished, display bio and schedule information on page
   $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
     setBandNameContent();
   });
+  $('#bandImg').show();
 })
+
 
 
 function switchToBandNameView() {
