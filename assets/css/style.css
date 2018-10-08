@@ -15,8 +15,7 @@ html {
     bottom: 0;
     height: 100%;
     width:100%;
-    opacity: 0.9;
-    background-color: black;
+    background-color:rgba(0,0,0,0.9);
     overflow: scroll;
 }
 
@@ -46,6 +45,8 @@ img.centerLogo {
 
 #bandImg {
     display: none;
+    -webkit-animation: fadeIn 3s;
+    animation:  fadeIn 3s;
 }
 
 #bandNameBtn, #genreBtn, #locationBtn {
@@ -72,7 +73,6 @@ img.centerLogo {
 }
 
 #bandContent {
-    background-color: black;
     font-family: 'Special Elite', cursive;
     text-align: justify;
 }
@@ -147,7 +147,9 @@ img.centerLogo {
     animation: fadeIn 1.5s;
 }
 
-@media only screen and (max-width: 640px) {
+
+
+@media only screen and (max-width: 741px) {
    
  #header {
      width: 100%;
@@ -163,19 +165,18 @@ img.centerLogo {
 }
 
 
-#homeButtonsDiv {
-    margin-right: 350px;
-}
 
- .test{
+ .margin{
     width: 200px;
     margin-bottom: 20px;
     margin-right: 250px;
     margin-left: 50px;
 }
 
-#homeButtonsDiv{
-    margin-right: 20px;
+
+
+#container2{
+    margin-left: 20px;
 }
 
 .form-inline {
@@ -183,3 +184,27 @@ img.centerLogo {
 }
 
 }
+/* 
+@media only screen and (min-width: 641px) and  (max-width: 731px) {
+
+#mainButtonsDiv {
+    margin-left: 100px;
+    padding: 50px;
+}
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
