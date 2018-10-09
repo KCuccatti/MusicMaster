@@ -48,6 +48,33 @@ $('#bioBtn').on('click', function () {
   $('#bandContent').show();
 })
 
+$('#homeBtn').on('click', function () {
+  $('#searchBy, #bandNameBtn, #genreBtn, #locationBtn').show();
+  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #btnBio, #btnSchedule, #bandImgLeft, #bandImgRight, #bandSchedule').hide();
+})
+
+$('#bandNameBtn, #genreBtn, #locationBtn').on('click', function () {
+  $('#bandTextBox, #genreTextBox, #locationTextBox').val('');
+  $('#bandNameBtn, #genreBtn, #locationBtn, #searchBy').hide();
+  $('#homeBtn').show();
+
+  if (this.id == 'bandNameBtn') {
+    $('#bandSearchDiv').show();
+    $('#bandTextBox').focus();
+  }
+
+  if (this.id == 'genreBtn') {
+    $('#genreSearchDiv').show();
+    $('#genreTextBox').focus();
+  }
+
+  if (this.id == 'locationBtn') {
+    $('#locationSearchDiv').show();
+    $('#locationTextBox').focus();
+  }
+
+})
+
 
 // On click of 'Schedule' button, checks if the band has any upcoming events,
 // hides band bio then shows band schedule.
@@ -238,12 +265,11 @@ function getBandSchedule(response) {
   bandSchedule = [];
   for (let i = 0; i < response.length; i++) {
     bandSchedule.push({
-      datetime: response[i].datetime.substring(0, 10), country: response[i].venue.country,
+      datetime: response[i].datetime, country: response[i].venue.country,
       city: response[i].venue.city, name: response[i].venue.name, region: response[i].venue.region
     });
   }
 }
-
 
 // Pushes 10 of the top artists in a given genre to the bandTop10 array
 function getBandTop10(response) {
