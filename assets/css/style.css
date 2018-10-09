@@ -15,10 +15,17 @@ html {
     bottom: 0;
     height: 100%;
     width:100%;
-    opacity: 0.7;
-    background-color: black;
+    background-color: rgba(0,0,0,0.7);
     overflow: scroll;
 }
+
+
+
+
+
+
+
+
 
 .input-group {
     color: white;
@@ -50,8 +57,9 @@ img.centerLogo {
 
 #bandNameBtn, #genreBtn, #locationBtn {
     padding: 20px 40px 20px 40px;
+    background-color:#16e5ecc4;
+    font-family: 'Special Elite', cursive;
 }
-
 
 #container1 {
     font-size: 28px;
@@ -59,6 +67,7 @@ img.centerLogo {
 
 #container2 {
     font-size:1.5em;
+    font-family: 'Special Elite', cursive;
 }
 
 #header {
@@ -72,7 +81,7 @@ img.centerLogo {
 }
 
 #bandContent {
-    background-color: black;
+    
     font-family: 'Special Elite', cursive;
     text-align: justify;
 }
@@ -112,10 +121,12 @@ img.centerLogo {
 #mainButtonsDiv {
     -webkit-animation: bounceInUp 2s;
     animation: bounceInUp 2s;
+    opacity: 2.0;
 }
 
 .centerHome { 
     display: flex; justify-content: center; 
+    font-family: 'Special Elite', cursive;
 }
 
 .centerForm {
@@ -127,6 +138,7 @@ img.centerLogo {
     padding: 20px 40px 20px 40px;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
+    background-color: #16e5ecc4;
 }
 
 #formDiv {
@@ -145,6 +157,9 @@ img.centerLogo {
     margin-bottom: 80px;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
+}
+#btnBio, #btnSchedule {
+    background-color: #16e5ecc4;
 }
 
 @media only screen and (max-width: 640px) {
