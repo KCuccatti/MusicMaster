@@ -41,25 +41,25 @@ $('#bandNameBtn, #genreBtn, #locationBtn').on('click', function () {
 
 
 // When 'Bio' button is clicked, hide band schedule then show band bio.
-$('#btnBio').on('click', function () {
+$('#bioBtn').on('click', function () {
   $('#bandSchedule').hide();
-  $('#btnBio').hide();
-  $('#btnSchedule').show();
+  $('#bioBtn').hide();
+  $('#scheduleBtn').show();
   $('#bandContent').show();
 })
 
 
 // On click of 'Schedule' button, checks if the band has any upcoming events,
 // hides band bio then shows band schedule.
-$('#btnSchedule').on('click', function () {
+$('#scheduleBtn').on('click', function () {
   if (!Array.isArray(bandSchedule) || !bandSchedule.length) {
     // Array does not exist, is not an array, or is empty
     $('#bandSchedule').html("There are no upcoming events for this artist/band.");
   }
 
   $('#bandContent').hide();
-  $('#btnSchedule').hide();
-  $('#btnBio').show();
+  $('#scheduleBtn').hide();
+  $('#bioBtn').show();
   $('#bandSchedule').show();
 })
 
@@ -67,8 +67,8 @@ $('#btnSchedule').on('click', function () {
 // hide necessary text boxes, images, and buttons. 
 $('#homeBtn').on('click', function () {
   $('#searchBy, #mainButtonsDiv').show();
-  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #btnBio, ' +
-    '#btnSchedule, #bandImg, #bandSchedule').hide();
+  $('#bandSearchDiv, #genreSearchDiv, #locationSearchDiv, #homeBtn, #bandContent, #bioBtn, ' +
+    '#scheduleBtn, #bandImg, #bandSchedule').hide();
   toggleBackground(false);
 })
 
@@ -76,25 +76,25 @@ $('#homeBtn').on('click', function () {
 // When "Band name" search button is clicked, show the bio and schedule buttons, show the band 
 // content, and toggle different background.
 $('#searchBtn1').on('click', function () {
-$('#bandImg').hide();
+
   switchToBandNameView(); // Show/Hide various content relavent/not relevant to band name view.
 
   // When the ajax calls and the funtions within those calls are finished, display bio and schedule information on page
   $.when(ajaxGetBandInfo($('#bandTextBox').val()), ajaxGetBandSchedule($('#bandTextBox').val())).done(function (a1, a2) {
     setBandNameContent();
   });
-  $('#bandImg').show();
 })
 
 
-
+// Switches the necessary view for band name functionality 
 function switchToBandNameView() {
-  $('#buttons, #bandContent, #btnSchedule, #btnBio, #bandImg').show();
+  $('#buttons, #bandContent, #scheduleBtn, #bioBtn, #bandImg').show();
   $('#bandSearchDiv').hide();
-  $('#btnBio').hide();
+  $('#bioBtn').hide();
   toggleBackground(true);
 }
 
+// Displays band image, bio and hides the schedule
 function setBandNameContent() {
   // Display the image as well as the band bio information.
   $('#bandImg').html(`<img src="${bandImage}"/>`);
@@ -102,6 +102,7 @@ function setBandNameContent() {
   $('#bandSchedule').html(buildSchedule()).hide();
 }
 
+// Builds the format of the band schedule
 function buildSchedule() {
   let schedule = "";
   // Loops through schedule array provided by the API, and puts it on the page
@@ -131,12 +132,14 @@ $('#searchBtn2').on('click', function () {
 
 })
 
+// Switches to a specific view for the 
 function switchToGenreView() {
   toggleBackground(true);
   $('#bandImg, #buttons').hide();
   $('#bandContent').html("");
   $('#bandContent').show();
 }
+
 
 function buildGenreTop10List() {
   let genre = "<br><h2>*** " + $('#genreTextBox').val().toUpperCase() + " Top 10 List ***</h2>";
@@ -165,8 +168,8 @@ $('#searchBtn3').on('click', function () {
 
 })
 
+// Build the list of upcoming events for the selected state.
 function buildEventList() {
-  // Build the list of upcoming events for the selected state.
   let events = "<br><h1 class= mb-4 style='font-size: 1.8em; text-align: center;'>Upcoming Events</h1>" + '';
   for (let i = 0; i < cityEvents.length; i++) {
     events = events + "<br>" +
