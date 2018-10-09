@@ -19,9 +19,6 @@ html {
     overflow: scroll;
 }
 
-.input-group {
-    color: white;
-}
 
 .topNumber {
     font-weight: bold;
@@ -54,17 +51,8 @@ img.centerLogo {
 }
 
 
-#container1 {
-    font-size: 28px;
-}
-
 #container2 {
     font-size:1.5em;
-}
-
-#header {
-    font-size: 80px;
-    font-family: 'Special Elite', cursive;
 }
 
 
@@ -73,19 +61,17 @@ img.centerLogo {
 }
 
 #bandContent {
+    display: none;
     font-family: 'Special Elite', cursive;
     text-align: justify;
 }
 
 #bandSchedule {
+    display: none;
     text-align: center;
     font-family: 'Special Elite', cursive;
 }
 
-#header a {
-    text-decoration: none;
-    color: white;
-}
 
 #bandSearchDiv, #genreSearchDiv, #locationSearchDiv {
     margin-left: 20px;
@@ -129,12 +115,22 @@ img.centerLogo {
     animation: fadeIn 1.5s;
 }
 
+#bioBtn {
+    display: none;
+}
+
+#scheduleBtn {
+    display: none;
+}
+
+
 #formDiv {
     text-align: center;
     display:none;
 }
 
 #bandImg {
+    display: none;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
 }
@@ -147,7 +143,7 @@ img.centerLogo {
     animation: fadeIn 1.5s;
 }
 
-
+/*End Animations*/
 
 @media only screen and (max-width: 741px) {
    
@@ -192,19 +188,5 @@ img.centerLogo {
     padding: 50px;
 }
 } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
