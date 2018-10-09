@@ -48,11 +48,14 @@ img.centerLogo {
 
 #bandNameBtn, #genreBtn, #locationBtn {
     padding: 20px 40px 20px 40px;
+    background-color:#16e5ecc4;
+    font-family: 'Special Elite', cursive;
 }
 
 
 #container2 {
     font-size:1.5em;
+    font-family: 'Special Elite', cursive;
 }
 
 
@@ -98,10 +101,12 @@ img.centerLogo {
 #mainButtonsDiv {
     -webkit-animation: bounceInUp 2s;
     animation: bounceInUp 2s;
+    opacity: 2.0;
 }
 
 .centerHome { 
     display: flex; justify-content: center; 
+    font-family: 'Special Elite', cursive;
 }
 
 .centerForm {
@@ -113,6 +118,7 @@ img.centerLogo {
     padding: 20px 40px 20px 40px;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
+    background-color: #16e5ecc4;
 }
 
 #bioBtn {
@@ -141,6 +147,9 @@ img.centerLogo {
     margin-bottom: 80px;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
+}
+#btnBio, #btnSchedule {
+    background-color: #16e5ecc4;
 }
 
 /*End Animations*/
