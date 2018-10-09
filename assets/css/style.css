@@ -15,21 +15,10 @@ html {
     bottom: 0;
     height: 100%;
     width:100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color:rgba(0,0,0,0.9);
     overflow: scroll;
 }
 
-
-
-
-
-
-
-
-
-.input-group {
-    color: white;
-}
 
 .topNumber {
     font-weight: bold;
@@ -53,6 +42,8 @@ img.centerLogo {
 
 #bandImg {
     display: none;
+    -webkit-animation: fadeIn 3s;
+    animation:  fadeIn 3s;
 }
 
 #bandNameBtn, #genreBtn, #locationBtn {
@@ -61,17 +52,9 @@ img.centerLogo {
     font-family: 'Special Elite', cursive;
 }
 
-#container1 {
-    font-size: 28px;
-}
 
 #container2 {
     font-size:1.5em;
-    font-family: 'Special Elite', cursive;
-}
-
-#header {
-    font-size: 80px;
     font-family: 'Special Elite', cursive;
 }
 
@@ -81,20 +64,17 @@ img.centerLogo {
 }
 
 #bandContent {
-    
+    display: none;
     font-family: 'Special Elite', cursive;
     text-align: justify;
 }
 
 #bandSchedule {
+    display: none;
     text-align: center;
     font-family: 'Special Elite', cursive;
 }
 
-#header a {
-    text-decoration: none;
-    color: white;
-}
 
 #bandSearchDiv, #genreSearchDiv, #locationSearchDiv {
     margin-left: 20px;
@@ -141,12 +121,22 @@ img.centerLogo {
     background-color: #16e5ecc4;
 }
 
+#bioBtn {
+    display: none;
+}
+
+#scheduleBtn {
+    display: none;
+}
+
+
 #formDiv {
     text-align: center;
     display:none;
 }
 
 #bandImg {
+    display: none;
     -webkit-animation: fadeIn 1.5s;
     animation: fadeIn 1.5s;
 }
@@ -162,7 +152,9 @@ img.centerLogo {
     background-color: #16e5ecc4;
 }
 
-@media only screen and (max-width: 640px) {
+/*End Animations*/
+
+@media only screen and (max-width: 741px) {
    
  #header {
      width: 100%;
@@ -178,19 +170,18 @@ img.centerLogo {
 }
 
 
-#homeButtonsDiv {
-    margin-right: 350px;
-}
 
- .test{
+ .margin{
     width: 200px;
     margin-bottom: 20px;
     margin-right: 250px;
     margin-left: 50px;
 }
 
-#homeButtonsDiv{
-    margin-right: 20px;
+
+
+#container2{
+    margin-left: 20px;
 }
 
 .form-inline {
@@ -198,3 +189,13 @@ img.centerLogo {
 }
 
 }
+/* 
+@media only screen and (min-width: 641px) and  (max-width: 731px) {
+
+#mainButtonsDiv {
+    margin-left: 100px;
+    padding: 50px;
+}
+} */
+
+
