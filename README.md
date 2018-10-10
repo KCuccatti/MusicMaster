@@ -12,5 +12,11 @@ Band name: gives a bio of desired band and their upcoming events.
 Genre: provides the top 10 artists of that genre. 
 Location: enter a state and upcoming events with date, country, state, City, and the band name will displayed, in that order.
 
+The API's we used were:
+
+* Last.fm
+* Bandsintown
+* Ticketmaster
+
 TODO: On the genre top 10 artist page, make the artist images clickable, and on click, provide upcoming events of that artist.
       Improve the location functionality to accept cities. 
